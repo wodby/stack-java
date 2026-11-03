@@ -1,0 +1,51 @@
+name: java
+icon: java
+title: Java
+
+services:
+- name: java
+  title: Java
+  service: java
+  required: true
+  main: true
+  links:
+  - name: db
+    service: postgres
+  - name: redis
+    service: valkey
+  - name: sendmail
+    service: mailpit
+
+- name: postgres
+  title: PostgreSQL
+  service: postgres
+  disabled: true
+  volumes:
+  - name: data
+    size: 20
+
+- name: valkey
+  title: Valkey
+  service: valkey
+  disabled: true
+
+- name: mailpit
+  disabled: true
+  title: Mailpit
+  service: mailpit
+
+- name: opensmtpd
+  disabled: true
+  title: OpenSMTPD
+  service: opensmtpd
+
+- name: gotenberg
+  required: false
+  disabled: true
+  title: Gotenberg
+  service: gotenberg
+
+- name: cloud-postgres
+  title: Cloud PostgreSQL
+  service: cloud-postgres
+  disabled: true
